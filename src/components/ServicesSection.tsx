@@ -14,11 +14,11 @@ const ServicesSection = () => {
       featured: true
     },
     {
-      title: "Events & Theatre",
-      subtitle: "Spectacular Experiences",
-      description: "Spectacular cocktail theatre performances and bespoke events that captivate audiences and create unforgettable experiences.",
-      features: ["Corporate Events", "Private Parties", "Cocktail Theatre", "Tastings"],
-      image: "https://images.unsplash.com/photo-1503095396549-807759245b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2044&q=80",
+      title: "Event Experiences",
+      subtitle: "Engaging Cocktail Experiences",
+      description: "From interactive masterclasses to theatrical cocktail receptions with dry ice and flair performances, we create unforgettable beverage experiences for your special occasions.",
+      features: ["Science Lab Cocktails", "G&T Bar Experience", "Flair Mixologists", "Bespoke Experiences"],
+      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
       href: "/events",
       cta: "View Events",
       featured: false
@@ -28,7 +28,7 @@ const ServicesSection = () => {
       subtitle: "Transform Your Operation",
       description: "Expert guidance to transform your bar operation, from menu development to staff training and operational excellence.",
       features: ["Menu Development", "Staff Training", "Operational Consulting", "Equipment Advice"],
-      image: "https://images.unsplash.com/photo-1520637836862-4d197d17c35a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2006&q=80",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       href: "/consultancy",
       cta: "Get Consultation",
       featured: false
