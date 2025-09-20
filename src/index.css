@@ -133,10 +133,10 @@ All colors MUST be HSL.
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  /* Luxury enhancements */
+  /* Enhanced luxury effects */
   .luxury-blur {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 
   .luxury-gradient {
@@ -151,28 +151,86 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  /* Custom animations */
+  /* Enhanced animations */
   @keyframes luxury-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--accent) / 0.2); }
-    50% { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--accent) / 0.2);
+      transform: translateY(0);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes luxury-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes luxury-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
   }
 
   .animate-luxury-glow {
     animation: luxury-glow 3s ease-in-out infinite;
   }
 
+  .animate-luxury-fade {
+    animation: luxury-fade-in 1s ease-out forwards;
+  }
+
+  /* Premium hover effects */
+  .luxury-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .luxury-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .luxury-hover:hover::before {
+    left: 100%;
+  }
+
   /* Better image loading */
   .luxury-image {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    will-change: transform;
   }
 
-  /* Elegant transitions */
+  /* Premium transitions */
   .luxury-transition {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .luxury-transition-slow {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* Gambetta variable font utilities */
+  .font-gambetta-ultralight {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 200;
+  }
+
   .font-gambetta-light {
     font-family: 'Gambetta', serif;
     font-variation-settings: "wght" 300;
@@ -193,15 +251,84 @@ All colors MUST be HSL.
     font-variation-settings: "wght" 600;
   }
 
-  /* Gambetta hover effects for luxury interactions */
-  .gambetta-hover {
-    font-family: 'Gambetta', serif;
-    font-variation-settings: "wght" 400;
-    transition: font-variation-settings 0.3s ease;
+  /* Enhanced text effects */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 92% 47%), hsl(45 100% 60%), hsl(45 92% 47%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: luxury-shimmer 3s linear infinite;
   }
 
-  .gambetta-hover:hover {
-    font-variation-settings: "wght" 600;
+  /* Premium card effects */
+  .luxury-card {
+    background: linear-gradient(135deg, hsl(var(--card) / 0.5), hsl(var(--card) / 0.3));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .luxury-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px hsl(var(--accent) / 0.2);
+    border-color: hsl(var(--accent) / 0.3);
+  }
+
+  /* Smooth scroll reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Premium focus states */
+  .luxury-focus:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--accent) / 0.5);
+  }
+
+  /* Enhanced button states */
+  .luxury-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .luxury-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: hsl(var(--accent) / 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .luxury-button:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Noise texture overlay for depth */
+  .luxury-noise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' /%3E%3C/svg%3E");
+    pointer-events: none;
+  }
 }
