@@ -46,7 +46,7 @@ const HeroSection = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mb-16">
           <Button 
             asChild
             variant="default"
@@ -63,6 +63,22 @@ const HeroSection = () => {
           >
             <Link to="/events">View Events</Link>
           </Button>
+        </div>
+
+        {/* Statistics Bar */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in">
+          <div className="text-center">
+            <div className="text-2xl sm:text-3xl font-serif font-light text-accent mb-2">500+</div>
+            <div className="text-sm text-muted-foreground uppercase tracking-wider">Venues Trained</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl sm:text-3xl font-serif font-light text-accent mb-2">15+</div>
+            <div className="text-sm text-muted-foreground uppercase tracking-wider">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl sm:text-3xl font-serif font-light text-accent mb-2">98%</div>
+            <div className="text-sm text-muted-foreground uppercase tracking-wider">Client Satisfaction</div>
+          </div>
         </div>
       </div>
 
