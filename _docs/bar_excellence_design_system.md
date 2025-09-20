@@ -23,11 +23,18 @@ The Bar Excellence design system embodies luxury hospitality through sophisticat
 ### Font Families
 ```css
 /* Primary Font - Headings */
-font-family: 'Cormorant Garamond', serif;
+font-family: 'Gambetta', 'Cormorant Garamond', serif;
 
 /* Secondary Font - Body Text */
 font-family: 'Inter', sans-serif;
 ```
+
+### Gambetta Font Features
+- **Source**: Fontshare (free luxury serif font)
+- **Variable Font**: Supports smooth weight transitions
+- **Characteristics**: Timeless elegance with contemporary flair, wide proportions for durability
+- **Ideal Use**: Immersive reading and luxury branding
+- **Weight Range**: Light (300) to Bold (700) with variable font-variation-settings
 
 ### Typography Hierarchy
 ```css
@@ -47,11 +54,12 @@ font-family: 'Inter', sans-serif;
 ```
 
 ### Typography Guidelines
-- Use `font-light` (300) for elegant, sophisticated feel
-- Apply `tracking-wide` for luxury spacing in headings
-- Use `leading-tight` for headings, `leading-relaxed` for body text
-- Serif fonts for all headings and display text
-- Sans-serif for body text and UI elements
+- **Gambetta Weights**: Use `font-light` (300) for elegant feel, `font-medium` (500) for emphasis
+- **Variable Font Usage**: Leverage font-variation-settings for smooth weight transitions in hover effects
+- **Letter Spacing**: Apply `tracking-wide` for luxury spacing - Gambetta benefits from adjusted letter spacing
+- **Line Height**: Use `leading-tight` for headings, `leading-relaxed` for body text
+- **Font Selection**: Gambetta for all headings and display text, Inter for body text and UI elements
+- **Contrast Enhancement**: Gambetta's wide proportions and slight contrast add elegance without feeling old-fashioned
 
 ## Color System
 

@@ -54,7 +54,7 @@ Transform the website into a luxury hospitality experience that elevates user en
 ## 5. Technical Requirements
 
 ### 5.1 Typography System
-- **Primary Font**: Cormorant Garamond (serif) for headings and elegant text
+- **Primary Font**: Gambetta (serif) for headings and elegant text with sophisticated fallbacks
 - **Secondary Font**: Inter (sans-serif) for body text and UI elements
 - **Hierarchy**: Sophisticated sizing scale (text-4xl to text-6xl for major headings)
 - **Spacing**: Enhanced letter-spacing and line-height for luxury feel
@@ -100,7 +100,7 @@ Transform the website into a luxury hospitality experience that elevates user en
 - **NewsletterSection**: Typography-focused design without decorative icons
 
 ### 7.2 Design System Documentation
-- **Typography Guidelines**: Cormorant Garamond usage and hierarchy
+- **Typography Guidelines**: Gambetta font usage and hierarchy with elegant fallbacks
 - **Spacing System**: Luxury padding and margin specifications
 - **Color System**: Dark luxury palette with gold accent usage
 - **Component Patterns**: Reusable luxury design patterns and implementations

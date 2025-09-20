@@ -1,3 +1,9 @@
+/* Gambetta font from Fontshare - Luxury serif for Bar Excellence */
+@import url('https://api.fontshare.com/css?f[]=gambetta@200,300,400,500,600,700&display=swap');
+
+/* Inter font from Google Fonts - Clean sans-serif for body text */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,11 +108,9 @@ All colors MUST be HSL.
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer utilities {
   .font-serif {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Gambetta', 'Cormorant Garamond', serif;
   }
   
   .font-sans {
@@ -166,5 +170,37 @@ All colors MUST be HSL.
   /* Elegant transitions */
   .luxury-transition {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gambetta variable font utilities */
+  .font-gambetta-light {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 300;
+  }
+
+  .font-gambetta-regular {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 400;
+  }
+
+  .font-gambetta-medium {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 500;
+  }
+
+  .font-gambetta-semibold {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 600;
+  }
+
+  /* Gambetta hover effects for luxury interactions */
+  .gambetta-hover {
+    font-family: 'Gambetta', serif;
+    font-variation-settings: "wght" 400;
+    transition: font-variation-settings 0.3s ease;
+  }
+
+  .gambetta-hover:hover {
+    font-variation-settings: "wght" 600;
   }
 }

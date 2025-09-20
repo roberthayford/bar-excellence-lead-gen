@@ -47,7 +47,7 @@ src/
 </p>
 
 // Font classes available
-.font-serif    // Cormorant Garamond for headings
+.font-serif    // Gambetta for headings (with Cormorant Garamond fallback)
 .font-sans     // Inter for body text
 ```
 
