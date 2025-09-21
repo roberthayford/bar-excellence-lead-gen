@@ -14,50 +14,73 @@ type MediaAsset = {
 };
 
 // Media assets configuration using Unsplash placeholders
-// Using images as primary with optional video enhancement
+// Using darker, moodier images for better text contrast
 const MEDIA_ASSETS: Record<string, MediaAsset> = {
   main: {
-    type: "image", // Changed to image for better reliability
-    // Elegant cocktail with dramatic lighting
-    src: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
+    type: "image",
+    // Darker, moodier cocktail image for better text visibility
+    src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2069&auto=format&fit=crop", // Dark luxury bar
   },
   magazine: {
     type: "image", 
-    // Sophisticated bar interior with award-worthy ambiance
-    src: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=2029&auto=format&fit=crop",
+    // Darker bar interior with better contrast
+    src: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=2035&auto=format&fit=crop", // Moody bar interior
   },
   newsletter: {
-    type: "image", // Changed to image for better reliability
-    // Professional bartender crafting cocktails
-    src: "https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2069&auto=format&fit=crop",
-  }
-};
-
-// Video version configuration (uncomment to use videos):
-/*
-const MEDIA_ASSETS: Record<string, MediaAsset> = {
-  main: {
-    type: "video",
-    src: "https://cdn.pixabay.com/video/2024/02/12/200326-913571686_large.mp4",
-    poster: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
-  },
-  magazine: {
     type: "image",
-    src: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=2029&auto=format&fit=crop",
-  },
-  newsletter: {
-    type: "video",
-    src: "https://cdn.pixabay.com/video/2022/09/08/131573-748856614_large.mp4",
-    poster: "https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2069&auto=format&fit=crop",
+    // Darker bartender scene
+    src: "https://images.unsplash.com/photo-1569924995012-c4c706bfcd51?q=80&w=2021&auto=format&fit=crop", // Professional bartender in darker setting
   }
 };
-*/
 
-// Alternative high-quality Unsplash images:
-// Luxury cocktails: https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=2057&auto=format&fit=crop
-// Gold cocktail: https://images.unsplash.com/photo-1609951651556-5334e2706168?q=80&w=2070&auto=format&fit=crop
-// Premium bar: https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=2035&auto=format&fit=crop
-// Award ceremony: https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop
+// Content for rotating highlights with stronger overlays
+const mediaHighlights = [
+  {
+    id: 0,
+    type: "main",
+    media: MEDIA_ASSETS.main,
+    tagline: "Elevating Hospitality Since 2009",
+    headline: ["The Art of", "Excellence"],
+    subtext: "World-class cocktail training and consultancy for luxury hospitality",
+    cta: {
+      text: "Discover Our Services",
+      link: "/training",
+    },
+    bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
+  },
+  {
+    id: 1,
+    type: "magazine",
+    media: MEDIA_ASSETS.magazine,
+    tagline: "Featured in Bar Magazine 2024",
+    headline: ["Industry", "Recognition"],
+    subtext: "Bar Excellence's innovative approach to hospitality training sets new standards",
+    cta: {
+      text: "Read the Feature",
+      link: "https://www.linkedin.com/your-bar-magazine-feature-link",
+      external: true,
+    },
+    bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
+    icon: Award,
+    badge: "Industry Excellence Award",
+  },
+  {
+    id: 2,
+    type: "newsletter",
+    media: MEDIA_ASSETS.newsletter,
+    tagline: "Weekly Industry Insights",
+    headline: ["Hospitality", "Blueprint"],
+    subtext: "Join thousands of professionals receiving curated expertise every week",
+    cta: {
+      text: "Subscribe to Newsletter",
+      link: "https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/",
+      external: true,
+    },
+    bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
+    icon: BookOpen,
+    badge: "5,000+ Subscribers",
+  },
+];
 
 const HeroSectionDynamic = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -65,55 +88,6 @@ const HeroSectionDynamic = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
-
-  // Content for rotating highlights
-  const mediaHighlights = [
-    {
-      id: 0,
-      type: "main",
-      media: MEDIA_ASSETS.main,
-      tagline: "Elevating Hospitality Since 2009",
-      headline: ["The Art of", "Excellence"],
-      subtext: "World-class cocktail training and consultancy for luxury hospitality",
-      cta: {
-        text: "Discover Our Services",
-        link: "/training",
-      },
-      bgOverlay: "from-black/40 via-black/50 to-black/60",
-    },
-    {
-      id: 1,
-      type: "magazine",
-      media: MEDIA_ASSETS.magazine,
-      tagline: "Featured in Bar Magazine 2024",
-      headline: ["Industry", "Recognition"],
-      subtext: "Bar Excellence's innovative approach to hospitality training sets new standards",
-      cta: {
-        text: "Read the Feature",
-        link: "https://www.linkedin.com/your-bar-magazine-feature-link",
-        external: true,
-      },
-      bgOverlay: "from-accent/30 via-black/50 to-black/70",
-      icon: Award,
-      badge: "Industry Excellence Award",
-    },
-    {
-      id: 2,
-      type: "newsletter",
-      media: MEDIA_ASSETS.newsletter,
-      tagline: "Weekly Industry Insights",
-      headline: ["Hospitality", "Blueprint"],
-      subtext: "Join thousands of professionals receiving curated expertise every week",
-      cta: {
-        text: "Subscribe to Newsletter",
-        link: "https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/",
-        external: true,
-      },
-      bgOverlay: "from-secondary/40 via-black/50 to-black/70",
-      icon: BookOpen,
-      badge: "5,000+ Subscribers",
-    },
-  ];
 
   useEffect(() => {
     setIsLoaded(true);
@@ -235,8 +209,13 @@ const HeroSectionDynamic = () => {
           {/* Dynamic Gradient Overlay */}
           <div className={`absolute inset-0 bg-gradient-to-b ${slide.bgOverlay} transition-all duration-1000`} />
           
+          {/* Additional contrast layer for better text visibility */}
+          <div className="absolute inset-0 bg-black/20" />
+          
           {/* Subtle Vignette Effect */}
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/30" />
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse at center, transparent 0%, transparent 30%, rgba(0,0,0,0.5) 100%)'
+          }} />
         </div>
       ))}
 
@@ -258,40 +237,42 @@ const HeroSectionDynamic = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           
-          {/* Dynamic Tagline */}
+          {/* Dynamic Tagline with text shadow for better visibility */}
           <div 
             key={`tagline-${current.id}`}
             className={`mb-8 transition-all duration-1000 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <span className="text-accent/80 text-xs sm:text-sm font-medium tracking-[0.3em] uppercase">
+            <span className="text-accent/90 text-xs sm:text-sm font-medium tracking-[0.3em] uppercase drop-shadow-2xl">
               {current.tagline}
             </span>
           </div>
 
-          {/* Dynamic Headline */}
+          {/* Dynamic Headline with improved contrast */}
           <h1 
             key={`headline-${current.id}`}
-            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-8 leading-[0.9] tracking-tight transition-all duration-1000 delay-200 ${
+            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-8 leading-[0.9] tracking-tight transition-all duration-1000 delay-200 drop-shadow-2xl ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
+            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
           >
             <span className="block">{current.headline[0]}</span>
-            <span className="block mt-2 font-light italic text-accent/90">{current.headline[1]}</span>
+            <span className="block mt-2 font-light italic text-accent">{current.headline[1]}</span>
           </h1>
 
-          {/* Dynamic Subtext */}
+          {/* Dynamic Subtext with better readability */}
           <p 
             key={`subtext-${current.id}`}
-            className={`text-lg sm:text-xl lg:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 ${
+            className={`text-lg sm:text-xl lg:text-2xl text-white/95 mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 drop-shadow-xl ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
+            style={{ textShadow: '0 1px 10px rgba(0,0,0,0.7)' }}
           >
             {current.subtext}
           </p>
 
-          {/* Dynamic CTA */}
+          {/* Dynamic CTA with enhanced button visibility */}
           <div 
             key={`cta-${current.id}`}
             className={`transition-all duration-1000 delay-500 ${
@@ -306,7 +287,7 @@ const HeroSectionDynamic = () => {
               >
                 <Button 
                   size="lg"
-                  className="group relative overflow-hidden bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
                 >
                   <span className="relative z-10 flex items-center">
                     {current.cta.text}
@@ -319,7 +300,7 @@ const HeroSectionDynamic = () => {
               <Link to={current.cta.link}>
                 <Button 
                   size="lg"
-                  className="group relative overflow-hidden bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
                 >
                   <span className="relative z-10 flex items-center">
                     {current.cta.text}
@@ -408,10 +389,15 @@ const HeroSectionDynamic = () => {
         </div>
       </div>
 
-      {/* Add custom gradient style to index.css if needed */}
+      {/* Add enhanced text shadow styles */}
       <style jsx>{`
         .bg-radial-gradient {
           background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        /* Additional text shadow for all text elements */
+        .text-shadow-strong {
+          text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
         }
       `}</style>
     </section>
