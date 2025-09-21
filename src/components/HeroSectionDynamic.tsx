@@ -139,7 +139,6 @@ const mediaHighlights = [
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
     icon: Award,
-    badge: "Industry Excellence Award",
   },
   {
     id: 2,
@@ -155,7 +154,6 @@ const mediaHighlights = [
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
     icon: BookOpen,
-    badge: "5,000+ Subscribers",
   },
 ];
 
@@ -427,8 +425,6 @@ const HeroSectionDynamic = () => {
         </div>
       ))}
 
-      {/* Main Content - Dynamic with fade effect */}
-      <div className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-opacity duration-500 ${fadeClass}`}>
         <div className="flex flex-col items-center text-center">
           
           {/* Dynamic Tagline with enhanced typography */}
