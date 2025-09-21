@@ -69,9 +69,6 @@ const TestimonialsSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="mb-6 bg-accent/10 text-accent border border-accent/20 px-4 py-1.5">
-            Client Success
-          </Badge>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extralight text-foreground mb-8 tracking-wide">
             Trusted by Industry Leaders
           </h2>
