@@ -1,5 +1,10 @@
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
+// Option 1: Keep static hero
+// import HeroSection from "@/components/HeroSection";
+
+// Option 2: Use dynamic hero for better UX
+import HeroSectionDynamic from "@/components/HeroSectionDynamic";
+
 import FeaturedMediaSection from "@/components/FeaturedMediaSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -12,8 +17,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
+      {/* Dynamic Hero with rotating media highlights */}
+      <HeroSectionDynamic />
+      
+      {/* Keep FeaturedMediaSection for detailed information */}
       <FeaturedMediaSection />
+      
       <ServicesSection />
       <TestimonialsSection />
       
