@@ -339,17 +339,17 @@ All colors MUST be HSL.
       opacity: 0;
     }
     10% {
-      opacity: 0.6;
-    }
-    50% {
-      transform: translateY(-50vh) translateX(20px);
       opacity: 0.4;
     }
+    50% {
+      transform: translateY(-50vh) translateX(10px);
+      opacity: 0.3;
+    }
     90% {
-      opacity: 0.2;
+      opacity: 0.1;
     }
     100% {
-      transform: translateY(-100vh) translateX(-20px);
+      transform: translateY(-100vh) translateX(-10px);
       opacity: 0;
     }
   }
@@ -360,6 +360,53 @@ All colors MUST be HSL.
     }
     50% {
       transform: translateY(-10px);
+    }
+  }
+
+  /* Gentler floating animations for better UX */
+  @keyframes float-gentle {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(5px, -5px);
+    }
+    50% {
+      transform: translate(10px, 0);
+    }
+    75% {
+      transform: translate(5px, 5px);
+    }
+  }
+
+  @keyframes float-gentle-reverse {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-5px, 5px);
+    }
+    50% {
+      transform: translate(-10px, 0);
+    }
+    75% {
+      transform: translate(-5px, -5px);
+    }
+  }
+
+  /* Subtle liquid animation */
+  @keyframes liquid-subtle {
+    0%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(0.5deg) scale(1.01);
+    }
+    50% {
+      transform: rotate(-0.5deg) scale(1.005);
+    }
+    75% {
+      transform: rotate(0.25deg) scale(1.01);
     }
   }
 
@@ -433,8 +480,20 @@ All colors MUST be HSL.
     animation: float-diagonal-reverse 8s ease-in-out infinite;
   }
 
+  .animate-float-gentle {
+    animation: float-gentle 8s ease-in-out infinite;
+  }
+
+  .animate-float-gentle-reverse {
+    animation: float-gentle-reverse 8s ease-in-out infinite;
+  }
+
   .animate-liquid-swirl {
     animation: liquid-swirl 4s ease-in-out infinite;
+  }
+
+  .animate-liquid-subtle {
+    animation: liquid-subtle 4s ease-in-out infinite;
   }
 
   .animate-shimmer {
