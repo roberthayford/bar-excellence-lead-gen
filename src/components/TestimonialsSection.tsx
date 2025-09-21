@@ -82,17 +82,17 @@ const TestimonialsSection = () => {
 
         {/* Featured Testimonial Display */}
         <div 
-          className="relative max-w-5xl mx-auto mb-20"
+          className="relative max-w-5xl mx-auto mb-12 sm:mb-20"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="relative bg-card/30 backdrop-blur-sm border border-border/20 rounded-2xl p-8 lg:p-12 overflow-hidden">
+          <div className="relative bg-card/30 backdrop-blur-sm border border-border/20 rounded-2xl p-5 sm:p-8 lg:p-12 overflow-hidden">
             {/* Quote Icon */}
-            <Quote className="absolute top-8 right-8 w-16 h-16 text-accent/10 rotate-180" />
+            <Quote className="absolute top-5 sm:top-8 right-5 sm:right-8 w-10 h-10 sm:w-16 sm:h-16 text-accent/10 rotate-180" />
             
             {/* Testimonial Content with Smooth Transitions */}
             <div className="relative z-10">
-              <div className="relative min-h-[200px]">
+              <div className="relative min-h-[300px] sm:min-h-[200px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={testimonial.id}
@@ -104,19 +104,19 @@ const TestimonialsSection = () => {
                           : 'opacity-0 translate-x-8'
                     }`}
                   >
-                    <blockquote className="text-xl sm:text-2xl font-serif font-light text-foreground leading-relaxed mb-12">
+                    <blockquote className="text-lg sm:text-xl md:text-2xl font-serif font-light text-foreground leading-relaxed mb-8 sm:mb-12">
                       "{testimonial.content}"
                     </blockquote>
 
                     {/* Author Info */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <img
                           src={testimonial.image}
                           alt={testimonial.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-accent/20"
+                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-accent/20"
                         />
-                        <div>
+                        <div className="mt-3 sm:mt-0">
                           <div className="font-serif text-lg text-foreground">
                             {testimonial.name}
                           </div>
@@ -124,7 +124,7 @@ const TestimonialsSection = () => {
                             {testimonial.role}
                           </div>
                           <div className="text-muted-foreground font-light text-sm">
-                            {testimonial.company} • {testimonial.venue}
+                            {testimonial.company} {testimonial.venue && <span>• {testimonial.venue}</span>}
                           </div>
                           <div className="text-muted-foreground/60 font-light text-xs mt-1">
                             {testimonial.location}
@@ -167,16 +167,16 @@ const TestimonialsSection = () => {
 
         {/* Client Partners - Simplified */}
         <div className="text-center">
-          <h3 className="text-lg font-light text-muted-foreground mb-8">
+          <h3 className="text-lg font-light text-muted-foreground mb-6 sm:mb-8">
             Trusted Partners Include
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-6 sm:gap-x-12 sm:gap-y-4">
             {clientPartners.map((partner) => (
               <div 
                 key={partner}
                 className="text-foreground/60 hover:text-accent transition-colors duration-300"
               >
-                <span className="text-lg font-serif font-light tracking-wider">
+                <span className="text-base sm:text-lg font-serif font-light tracking-wider">
                   {partner}
                 </span>
               </div>
