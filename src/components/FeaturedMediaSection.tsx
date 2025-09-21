@@ -24,7 +24,7 @@ const FeaturedMediaSection = () => {
   return (
     <section 
       id="featured-media"
-      className="py-20 lg:py-32 bg-gradient-to-b from-background via-secondary/3 to-background relative overflow-hidden"
+      className="py-16 xs:py-20 lg:py-32 bg-gradient-to-b from-background via-secondary/3 to-background relative overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -34,30 +34,30 @@ const FeaturedMediaSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div 
-          className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${
+          className={`text-center mb-12 xs:mb-16 lg:mb-20 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-            <span className="text-accent/80 text-sm font-medium tracking-[0.3em] uppercase">
+          <div className="inline-flex items-center gap-2 xs:gap-3 mb-4 xs:mb-6">
+            <div className="w-8 xs:w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+            <span className="text-accent/80 text-xs font-medium tracking-[0.3em] uppercase">
               Featured Media
             </span>
-            <div className="w-12 h-px bg-gradient-to-r from-accent via-transparent to-transparent" />
+            <div className="w-8 xs:w-12 h-px bg-gradient-to-r from-accent via-transparent to-transparent" />
           </div>
           
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extralight text-foreground mb-6 leading-tight">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-serif font-extralight text-foreground mb-5 xs:mb-6 leading-tight">
             Recognition &
             <span className="block mt-2 font-light italic text-accent/90">Thought Leadership</span>
           </h2>
           
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-base xs:text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
             Discover how Bar Excellence continues to shape the future of hospitality through industry recognition and weekly insights
           </p>
         </div>
 
         {/* Media Features Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           
           {/* Bar Magazine Feature Card */}
           <div 
@@ -118,24 +118,24 @@ const FeaturedMediaSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 lg:p-10 space-y-6">
+              <div className="p-6 xs:p-8 lg:p-10 space-y-5 xs:space-y-6">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="inline-flex items-center gap-2 mb-3">
                       <span className="text-accent/70 text-xs font-medium tracking-wider uppercase">Industry Recognition</span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-serif font-light text-foreground mb-4">
+                    <h3 className="text-xl xs:text-2xl lg:text-3xl font-serif font-light text-foreground mb-3 xs:mb-4">
                       Excellence in <span className="text-accent font-medium">Hospitality Training</span>
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed font-light">
+                <p className="text-sm xs:text-base text-muted-foreground leading-relaxed font-light">
                   Bar Excellence's innovative approach to hospitality training has been recognized by the industry's leading publication. Our expertise in elevating cocktail service and team development continues to set new standards across luxury venues.
                 </p>
 
                 {/* Feature Highlights */}
-                <div className="grid grid-cols-2 gap-4 py-6 border-t border-b border-border/30">
+                <div className="grid grid-cols-2 gap-4 py-5 xs:py-6 border-t border-b border-border/30">
                   <div className="text-center">
                     <div className="text-2xl font-serif font-light text-accent mb-1">500+</div>
                     <div className="text-xs text-muted-foreground tracking-wide">Venues Trained</div>
@@ -240,25 +240,25 @@ const FeaturedMediaSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 lg:p-10 space-y-6">
+              <div className="p-6 xs:p-8 lg:p-10 space-y-5 xs:space-y-6">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="inline-flex items-center gap-2 mb-3">
                       <Calendar className="w-4 h-4 text-accent/70" />
                       <span className="text-accent/70 text-xs font-medium tracking-wider uppercase">Weekly Insights</span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-serif font-light text-foreground mb-4">
+                    <h3 className="text-xl xs:text-2xl lg:text-3xl font-serif font-light text-foreground mb-3 xs:mb-4">
                       <span className="text-accent font-medium">Hospitality Blueprint</span> Newsletter
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed font-light">
+                <p className="text-sm xs:text-base text-muted-foreground leading-relaxed font-light">
                   Join thousands of hospitality professionals who rely on our weekly newsletter for the latest insights on cocktail trends, service excellence, and industry best practices. Curated expertise delivered directly to your inbox.
                 </p>
 
                 {/* Newsletter Features */}
-                <div className="space-y-3 py-6 border-t border-b border-border/30">
+                <div className="space-y-2.5 xs:space-y-3 py-5 xs:py-6 border-t border-b border-border/30">
                   <div className="flex items-center gap-3">
                     <TrendingUp className="w-4 h-4 text-accent/70" />
                     <span className="text-sm text-muted-foreground">Industry trends and market insights</span>
@@ -315,12 +315,12 @@ const FeaturedMediaSection = () => {
 
         {/* Bottom CTA Section */}
         <div 
-          className={`text-center mt-16 lg:mt-20 transition-all duration-1000 delay-600 ${
+          className={`text-center mt-12 xs:mt-16 lg:mt-20 transition-all duration-1000 delay-600 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <div className="max-w-2xl mx-auto">
-            <p className="text-muted-foreground mb-8 font-light leading-relaxed">
+            <p className="text-sm xs:text-base text-muted-foreground mb-6 xs:mb-8 font-light leading-relaxed">
               Stay connected with Bar Excellence through our thought leadership and industry recognition. 
               Join our community of hospitality professionals committed to excellence.
             </p>
@@ -330,10 +330,11 @@ const FeaturedMediaSection = () => {
                 href="https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 <Button 
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-base font-light tracking-wide shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground px-6 xs:px-8 py-3 xs:py-4 text-sm xs:text-base font-light tracking-wide shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Follow Our Newsletter
                 </Button>

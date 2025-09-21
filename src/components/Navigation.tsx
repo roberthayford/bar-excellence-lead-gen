@@ -35,10 +35,10 @@ const Navigation = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled 
           ? "bg-background/95 backdrop-blur-md border-b border-border shadow-elegant py-2" 
-          : "bg-transparent py-4"
+          : "bg-transparent py-3 sm:py-4"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
@@ -50,15 +50,15 @@ const Navigation = () => {
                 <img 
                   src="/img/Bar Excellence Logo-White-on-Transparent.svg" 
                   alt="Bar Excellence"
-                  className="h-10 sm:h-12 w-auto transition-all duration-300" 
+                  className="h-8 xs:h-9 sm:h-12 w-auto transition-all duration-300" 
                   onError={() => setLogoError(true)}
                 />
               )}
               
               {/* Fallback for when image doesn't load */}
               {logoError && (
-                <div className="w-10 h-10 bg-gradient-gold rounded-full flex items-center justify-center">
-                  <span className="text-primary-foreground font-serif font-bold text-lg">BE</span>
+                <div className="w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 bg-gradient-gold rounded-full flex items-center justify-center">
+                  <span className="text-primary-foreground font-serif font-bold text-base sm:text-lg">BE</span>
                 </div>
               )}
             </div>
@@ -89,10 +89,10 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground luxury-hover"
+              className="text-foreground luxury-hover p-1 xs:p-2"
               aria-label={isOpen ? "Close Menu" : "Open Menu"}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5 xs:h-6 xs:w-6" /> : <Menu className="h-5 w-5 xs:h-6 xs:w-6" />}
             </Button>
           </div>
         </div>
@@ -100,17 +100,17 @@ const Navigation = () => {
         {/* Mobile Navigation - Enhanced with animation */}
         <div 
           className={cn(
-            "md:hidden fixed inset-x-0 top-16 bg-background/95 backdrop-blur-lg border-y border-border z-40 overflow-hidden transition-all duration-300 ease-in-out",
+            "md:hidden fixed inset-x-0 top-[56px] xs:top-[60px] sm:top-16 bg-background/95 backdrop-blur-lg border-y border-border z-40 overflow-hidden transition-all duration-300 ease-in-out",
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           )}
         >
-          <div className="px-4 py-5 space-y-3">
+          <div className="px-3 xs:px-4 py-4 space-y-2">
             {navItems.map((item, i) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "block px-3 py-3 text-lg text-foreground hover:text-accent luxury-transition font-medium border-b border-border/30 luxury-hover",
+                  "block px-3 py-2.5 xs:py-3 text-base xs:text-lg text-foreground hover:text-accent luxury-transition font-medium border-b border-border/30 luxury-hover",
                   isOpen && "animate-luxury-fade"
                 )}
                 style={{ animationDelay: `${i * 100}ms` }}
@@ -119,9 +119,9 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4">
+            <div className="pt-3 xs:pt-4">
               <Button 
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-6 luxury-transition shadow-gold hover:shadow-md text-lg font-medium"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-5 xs:py-6 luxury-transition shadow-gold hover:shadow-md text-base xs:text-lg font-medium"
               >
                 Contact Us
               </Button>

@@ -278,7 +278,7 @@ const HeroSectionDynamic = () => {
           {/* Dynamic Headline with improved contrast */}
           <h1 
             key={`headline-${current.id}`}
-            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-8 leading-[0.9] tracking-tight transition-all duration-1000 delay-200 drop-shadow-2xl ${
+            className={`text-4xl xs:text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-6 sm:mb-8 leading-[0.9] tracking-tight transition-all duration-1000 delay-200 drop-shadow-2xl ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
@@ -290,7 +290,7 @@ const HeroSectionDynamic = () => {
           {/* Dynamic Subtext with better readability */}
           <p 
             key={`subtext-${current.id}`}
-            className={`text-lg sm:text-xl lg:text-2xl text-white/95 mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 drop-shadow-xl ${
+            className={`text-base xs:text-lg sm:text-xl lg:text-2xl text-white/95 mb-8 sm:mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 drop-shadow-xl ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ textShadow: '0 1px 10px rgba(0,0,0,0.7)' }}
@@ -301,7 +301,7 @@ const HeroSectionDynamic = () => {
           {/* Dynamic CTA with enhanced button visibility */}
           <div 
             key={`cta-${current.id}`}
-            className={`transition-all duration-1000 delay-500 ${
+            className={`transition-all duration-1000 delay-500 w-full sm:w-auto ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
@@ -339,18 +339,18 @@ const HeroSectionDynamic = () => {
           </div>
 
           {/* Slide Navigation Controls */}
-          <div className="mt-12 flex items-center gap-8">
+          <div className="mt-8 sm:mt-12 flex items-center gap-6 sm:gap-8">
             {/* Previous Button */}
             <button
               onClick={prevSlide}
-              className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="group p-1 sm:p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-accent transition-colors" />
             </button>
 
             {/* Slide Indicators with hover animation */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {mediaHighlights.map((_, index) => (
                 <button
                   key={index}
@@ -374,36 +374,36 @@ const HeroSectionDynamic = () => {
             {/* Next Button */}
             <button
               onClick={nextSlide}
-              className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="group p-1 sm:p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-accent transition-colors" />
             </button>
           </div>
 
           {/* Static Trust Indicators - Always Visible */}
           <div 
-            className={`mt-20 flex flex-wrap justify-center items-center gap-8 sm:gap-12 text-white/60 transition-all duration-1000 delay-700 ${
+            className={`mt-12 sm:mt-20 flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 text-white/60 transition-all duration-1000 delay-700 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <div className="flex items-center gap-3">
-              <span className="text-2xl sm:text-3xl font-serif font-light text-accent/70">500+</span>
-              <span className="text-xs sm:text-sm font-light tracking-wide">Venues Trained</span>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-xl sm:text-2xl lg:text-3xl font-serif font-light text-accent/70">500+</span>
+              <span className="text-[10px] xs:text-xs sm:text-sm font-light tracking-wide">Venues Trained</span>
             </div>
             
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
+            <div className="hidden xs:block w-px h-6 sm:h-8 bg-white/20" />
             
-            <div className="flex items-center gap-3">
-              <span className="text-2xl sm:text-3xl font-serif font-light text-accent/70">15</span>
-              <span className="text-xs sm:text-sm font-light tracking-wide">Years Excellence</span>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-xl sm:text-2xl lg:text-3xl font-serif font-light text-accent/70">15</span>
+              <span className="text-[10px] xs:text-xs sm:text-sm font-light tracking-wide">Years Excellence</span>
             </div>
             
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
+            <div className="hidden xs:block w-px h-6 sm:h-8 bg-white/20" />
             
-            <div className="flex items-center gap-3">
-              <span className="text-2xl sm:text-3xl font-serif font-light text-accent/70">98%</span>
-              <span className="text-xs sm:text-sm font-light tracking-wide">Client Satisfaction</span>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-xl sm:text-2xl lg:text-3xl font-serif font-light text-accent/70">98%</span>
+              <span className="text-[10px] xs:text-xs sm:text-sm font-light tracking-wide">Client Satisfaction</span>
             </div>
           </div>
         </div>
