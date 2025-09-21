@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
             
             {/* Testimonial Content with Smooth Transitions */}
             <div className="relative z-10">
-              <div className="relative min-h-[300px] sm:min-h-[200px]">
+              <div className="relative min-h-[450px] sm:min-h-[320px] md:min-h-[270px] lg:min-h-[220px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={testimonial.id}
@@ -106,13 +106,15 @@ const TestimonialsSection = () => {
                     </blockquote>
 
                     {/* Author Info */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 sm:mb-0">
                       <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-accent/20"
-                        />
+                        <div className="flex items-center">
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-accent/20"
+                          />
+                        </div>
                         <div className="mt-3 sm:mt-0">
                           <div className="font-serif text-lg text-foreground">
                             {testimonial.name}
