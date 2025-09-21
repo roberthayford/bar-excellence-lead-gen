@@ -23,7 +23,7 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Hospitality Blueprint", href: "/blueprint" },
+    { name: "Hospitality Blueprint", href: "/blueprint", className: "font-bodoni tracking-wider" },
     { name: "Newsletter", href: "/newsletter" },
     { name: "Training", href: "/training" },
     { name: "Events", href: "/events" },
@@ -70,7 +70,10 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium tracking-wide luxury-hover py-1 px-2 rounded-sm relative group"
+                className={cn(
+                  "text-foreground hover:text-accent transition-colors duration-200 font-medium tracking-wide luxury-hover py-1 px-2 rounded-sm relative group",
+                  item.className
+                )}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300 ease-out"></span>
@@ -111,6 +114,7 @@ const Navigation = () => {
                 to={item.href}
                 className={cn(
                   "block px-3 py-2.5 xs:py-3 text-base xs:text-lg text-foreground hover:text-accent luxury-transition font-medium border-b border-border/30 luxury-hover",
+                  item.className,
                   isOpen && "animate-luxury-fade"
                 )}
                 style={{ animationDelay: `${i * 100}ms` }}

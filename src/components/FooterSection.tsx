@@ -69,7 +69,7 @@ const FooterSection = () => {
               <span className="font-serif font-medium text-foreground tracking-wider text-lg">BAR EXCELLENCE</span>
             </div>
             
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm font-bodoni-light text-muted-foreground leading-relaxed">
               Elevating the art of hospitality through exceptional training, experiences, and consultancy. Creating unforgettable moments for guests and building stronger teams for venues.
             </p>
 
@@ -94,7 +94,7 @@ const FooterSection = () => {
                   </span>
                 </Button>
               </form>
-              <p className="text-xs text-muted-foreground/70">
+              <p className="text-xs font-bodoni-light text-muted-foreground/70">
                 Get weekly insights on hospitality excellence, cocktail trends, and industry best practices
               </p>
             </div>
@@ -210,26 +210,26 @@ const FooterSection = () => {
       {/* Lower Footer - Copyright & Links */}
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-sm text-muted-foreground mb-4 sm:mb-0">
+          <div className="text-sm font-bodoni-light text-muted-foreground mb-4 sm:mb-0">
             {new Date().getFullYear()} Bar Excellence. All rights reserved.
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link 
               to="/privacy"
-              className="text-xs text-muted-foreground hover:text-accent transition-colors duration-200"
+              className="text-xs font-bodoni-light text-muted-foreground hover:text-accent transition-colors duration-200"
             >
               Privacy Policy
             </Link>
             <Link 
               to="/terms"
-              className="text-xs text-muted-foreground hover:text-accent transition-colors duration-200"
+              className="text-xs font-bodoni-light text-muted-foreground hover:text-accent transition-colors duration-200"
             >
               Terms of Service
             </Link>
             <Link 
               to="/cookies"
-              className="text-xs text-muted-foreground hover:text-accent transition-colors duration-200"
+              className="text-xs font-bodoni-light text-muted-foreground hover:text-accent transition-colors duration-200"
             >
               Cookie Policy
             </Link>
@@ -241,7 +241,7 @@ const FooterSection = () => {
       <div className="bg-background/80 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
-            <div className="flex items-center space-x-1.5 text-sm text-muted-foreground hover:text-accent transition-colors duration-200">
+            <div className="flex items-center space-x-1.5 text-sm font-bodoni-light text-muted-foreground hover:text-accent transition-colors duration-200">
               <span>Featured in</span>
               <a
                 href="https://www.linkedin.com/your-bar-magazine-feature-link" 
@@ -255,7 +255,7 @@ const FooterSection = () => {
             
             <div className="w-px h-4 bg-border/40 hidden sm:block"></div>
             
-            <div className="flex items-center space-x-1.5 text-sm text-muted-foreground hover:text-accent transition-colors duration-200">
+            <div className="flex items-center space-x-1.5 text-sm font-bodoni-light text-muted-foreground hover:text-accent transition-colors duration-200">
               <span>Read our</span>
               <a
                 href="https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/"

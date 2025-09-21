@@ -23,8 +23,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Cormorant Garamond', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['Gambetta', 'serif'],
+        sans: ['Bodoni Moda', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

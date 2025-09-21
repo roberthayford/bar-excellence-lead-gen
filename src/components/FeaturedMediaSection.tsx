@@ -218,8 +218,8 @@ const FeaturedMediaSection = () => {
                           Weekly Newsletter
                         </p>
                         <p 
-                          className="text-3xl font-serif font-medium text-accent drop-shadow-2xl"
-                          style={{ textShadow: '0 2px 15px rgba(0,0,0,0.9)' }}
+                          className="text-3xl font-bodoni font-medium text-accent drop-shadow-2xl"
+                          style={{ textShadow: '0 2px 15px rgba(0,0,0,0.9)', letterSpacing: '0.03em' }}
                         >
                           Hospitality Blueprint
                         </p>

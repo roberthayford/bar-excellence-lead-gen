@@ -1,8 +1,8 @@
 /* Gambetta font from Fontshare - Luxury serif for Bar Excellence */
 @import url('https://api.fontshare.com/css?f[]=gambetta@200,300,400,500,600,700&display=swap');
 
-/* Inter font from Google Fonts - Clean sans-serif for body text */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Bodoni Moda font from Google Fonts - Elegant serif for luxury text and body content */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,300;1,6..96,400;1,6..96,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -100,7 +100,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -113,8 +113,39 @@ All colors MUST be HSL.
     font-family: 'Gambetta', 'Cormorant Garamond', serif;
   }
   
-  .font-sans {
-    font-family: 'Inter', sans-serif;
+  .font-bodoni-light {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 300;
+  }
+  
+  .font-bodoni-regular {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 400;
+  }
+
+  .font-bodoni-medium {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 500;
+  }
+
+  .font-bodoni-semibold {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 600;
+  }
+  
+  .font-bodoni-italic {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+  }
+
+  .luxury-text {
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+  }
+  
+  .luxury-heading {
+    letter-spacing: 0.01em;
+    line-height: 1.2;
   }
 
   .gradient-gold {
@@ -262,7 +293,7 @@ All colors MUST be HSL.
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   .touch-target-sm {
     min-height: 36px;
     min-width: 36px;
