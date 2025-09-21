@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Award, BookOpen, TrendingUp, Users, Calendar } from "lucide-react";
+import { ExternalLink, Award, BookOpen, TrendingUp, Users, Calendar, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FeaturedMediaSection = () => {
@@ -65,22 +65,41 @@ const FeaturedMediaSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 lg:p-10 h-full hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group-hover:scale-[1.02]">
+            <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden h-full hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group-hover:scale-[1.02]">
               
-              {/* Floating Award Icon */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <Award className="w-6 h-6 text-accent animate-pulse" />
+              {/* Magazine Cover Image Section */}
+              <div className="relative h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-accent/10 via-accent/5 to-background">
+                {/* Placeholder for magazine imagery - replace with actual image */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent" />
+                
+                {/* Elegant text overlay for now - replace with actual magazine cover */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                      <Award className="w-10 h-10 text-accent" />
+                    </div>
+                    <div className="text-white">
+                      <p className="text-lg font-serif font-light mb-1">Featured in</p>
+                      <p className="text-3xl font-serif font-medium text-accent">Bar Magazine</p>
+                      <p className="text-sm font-light mt-2 text-white/80">Industry Excellence Award 2024</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating sparkle effects */}
+                <Sparkles className="absolute top-4 right-4 w-6 h-6 text-accent/60 animate-pulse" />
+                <Sparkles className="absolute bottom-4 left-4 w-4 h-4 text-accent/40 animate-pulse delay-300" />
               </div>
 
               {/* Content */}
-              <div className="space-y-6">
+              <div className="p-8 lg:p-10 space-y-6">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="inline-flex items-center gap-2 mb-3">
                       <span className="text-accent/70 text-xs font-medium tracking-wider uppercase">Industry Recognition</span>
                     </div>
                     <h3 className="text-2xl lg:text-3xl font-serif font-light text-foreground mb-4">
-                      Featured in <span className="text-accent font-medium">Bar Magazine</span>
+                      Excellence in <span className="text-accent font-medium">Hospitality Training</span>
                     </h3>
                   </div>
                 </div>
@@ -127,15 +146,46 @@ const FeaturedMediaSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 lg:p-10 h-full hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group-hover:scale-[1.02]">
+            <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden h-full hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group-hover:scale-[1.02]">
               
-              {/* Floating Newsletter Icon */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <BookOpen className="w-6 h-6 text-accent animate-pulse" />
+              {/* Newsletter Header Image Section */}
+              <div className="relative h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-secondary via-accent/10 to-background">
+                {/* Abstract newsletter design */}
+                <div className="absolute inset-0">
+                  {/* Newsletter grid pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="h-full w-full bg-[linear-gradient(90deg,_theme(colors.accent)_1px,_transparent_1px),_linear-gradient(180deg,_theme(colors.accent)_1px,_transparent_1px)] bg-[size:20px_20px]" />
+                  </div>
+                  
+                  {/* Content preview boxes */}
+                  <div className="absolute top-8 left-8 right-8 space-y-3 opacity-20">
+                    <div className="h-3 bg-accent/30 rounded w-3/4"></div>
+                    <div className="h-3 bg-accent/20 rounded w-full"></div>
+                    <div className="h-3 bg-accent/20 rounded w-5/6"></div>
+                  </div>
+                  
+                  {/* Center branding */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                        <BookOpen className="w-10 h-10 text-accent" />
+                      </div>
+                      <div>
+                        <p className="text-lg font-serif font-light text-foreground/80 mb-1">Weekly Newsletter</p>
+                        <p className="text-3xl font-serif font-medium text-accent">Hospitality Blueprint</p>
+                        <p className="text-sm font-light mt-2 text-muted-foreground">Industry Insights & Trends</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Animated elements */}
+                  <div className="absolute top-12 right-12 w-8 h-8 rounded-full bg-accent/20 animate-pulse" />
+                  <div className="absolute bottom-12 left-12 w-6 h-6 rounded-full bg-accent/30 animate-pulse delay-500" />
+                </div>
               </div>
 
               {/* Content */}
-              <div className="space-y-6">
+              <div className="p-8 lg:p-10 space-y-6">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="inline-flex items-center gap-2 mb-3">
