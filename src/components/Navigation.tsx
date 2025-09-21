@@ -23,7 +23,7 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Blueprint", href: "/blueprint" },
+    { name: "Hospitality Blueprint", href: "/blueprint" },
     { name: "Newsletter", href: "/newsletter" },
     { name: "Training", href: "/training" },
     { name: "Events", href: "/events" },
