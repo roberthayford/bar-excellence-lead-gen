@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
 
 // Import your assets here
 import heroImage from "@/assets/hero-cocktail.jpg"; // Default fallback image
@@ -84,6 +85,26 @@ const HeroSectionDynamic = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLElement>(null);
+  const [hoveredBtn, setHoveredBtn] = useState<number | null>(null);
+  
+  // Track mouse position for parallax effects
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!heroRef.current) return;
+    
+    const { left, top, width, height } = heroRef.current.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) - 0.5;
+    const y = ((e.clientY - top) / height) - 0.5;
+    
+    setMousePosition({ x, y });
+  }, []);
+
+  // Set up mouse movement tracking
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [handleMouseMove]);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -145,7 +166,7 @@ const HeroSectionDynamic = () => {
   const current = mediaHighlights[currentSlide];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Dynamic Background Media */}
       {mediaHighlights.map((slide, index) => (
         <div 
@@ -202,16 +223,39 @@ const HeroSectionDynamic = () => {
             </>
           )}
 
-          {/* Dynamic Gradient Overlay */}
-          <div className={`absolute inset-0 bg-gradient-to-b ${slide.bgOverlay} transition-all duration-1000`} />
+          {/* Dynamic Gradient Overlay - Enhanced */}
+          <div className={`absolute inset-0 transition-all duration-1000`}>
+            {/* Primary gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
+            
+            {/* Accent color tint based on slide type */}
+            <div className={`absolute inset-0 opacity-30 bg-gradient-to-tr 
+              ${slide.type === 'main' 
+                ? 'from-transparent via-accent/10 to-accent/5' 
+                : slide.type === 'magazine' 
+                  ? 'from-transparent via-accent/20 to-accent/5' 
+                  : 'from-transparent via-secondary/15 to-accent/10'
+              }`} 
+            />
+            
+            {/* Side vignettes for dramatic effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+          </div>
           
-          {/* Additional contrast layer for better text visibility */}
-          <div className="absolute inset-0 bg-black/20" />
-          
-          {/* Subtle Vignette Effect */}
+          {/* Enhanced Vignette Effect with more sophistication */}
           <div className="absolute inset-0" style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, transparent 30%, rgba(0,0,0,0.5) 100%)'
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%)',
+            mixBlendMode: 'multiply'
           }} />
+          
+          {/* Subtle grain texture for added depth */}
+          <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+            style={{ 
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '200px 200px'
+            }}
+          />
         </div>
       ))}
 
@@ -269,26 +313,26 @@ const HeroSectionDynamic = () => {
               >
                 <Button 
                   size="lg"
-                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
+                  className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)]"
                 >
                   <span className="relative z-10 flex items-center">
                     {current.cta.text}
                     <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Button>
               </a>
             ) : (
               <Link to={current.cta.link}>
                 <Button 
                   size="lg"
-                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-light tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
+                  className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)]"
                 >
                   <span className="relative z-10 flex items-center">
                     {current.cta.text}
                     <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Button>
               </Link>
             )}
@@ -305,19 +349,25 @@ const HeroSectionDynamic = () => {
               <ChevronLeft className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
             </button>
 
-            {/* Slide Indicators */}
+            {/* Slide Indicators with hover animation */}
             <div className="flex gap-3">
               {mediaHighlights.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`transition-all duration-500 ${
+                  onMouseEnter={() => setHoveredBtn(index)}
+                  onMouseLeave={() => setHoveredBtn(null)}
+                  className={`relative transition-all duration-500 ${
                     index === currentSlide
                       ? 'w-12 h-2 bg-accent'
                       : 'w-2 h-2 bg-white/40 hover:bg-white/60'
-                  } rounded-full`}
+                  } rounded-full overflow-hidden group`}
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  {hoveredBtn === index && index !== currentSlide && (
+                    <span className="absolute inset-0 w-full bg-accent/80 animate-slideRight"></span>
+                  )}
+                </button>
               ))}
             </div>
 
@@ -380,6 +430,39 @@ const HeroSectionDynamic = () => {
         /* Additional text shadow for all text elements */
         .text-shadow-strong {
           text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes testimonialFade {
+          0%, 33.33% { opacity: 1; }
+          33.34%, 99.99% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(0); }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeInOut {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+        
+        .animate-slideRight {
+          animation: slideRight 0.3s ease-out forwards;
+        }
+        
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-fadeInOut {
+          animation: fadeInOut 4s ease-in-out infinite;
         }
       `}</style>
     </section>
