@@ -166,6 +166,7 @@ const HeroSectionDynamic = () => {
   const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showSmoke, setShowSmoke] = useState(true);
+  const [fadeClass, setFadeClass] = useState('opacity-100'); // Add fade state
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   useEffect(() => {
@@ -182,14 +183,22 @@ const HeroSectionDynamic = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Auto-rotate slides
+  // Auto-rotate slides with fade effect
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % mediaHighlights.length);
+      // Start fade out
+      setFadeClass('opacity-0');
+      
+      // Change slide after fade out completes
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % mediaHighlights.length);
+        // Fade back in
+        setFadeClass('opacity-100');
+      }, 500); // Half second fade out
     }, 8000); // Change slide every 8 seconds
 
     return () => clearInterval(timer);
-  }, [mediaHighlights.length]);
+  }, []);
 
   // Handle video playback when slide changes
   useEffect(() => {
@@ -210,15 +219,41 @@ const HeroSectionDynamic = () => {
   }, [currentSlide]);
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index);
+    if (index !== currentSlide) {
+      // Start fade out
+      setFadeClass('opacity-0');
+      
+      // Change slide after fade out completes
+      setTimeout(() => {
+        setCurrentSlide(index);
+        // Fade back in
+        setFadeClass('opacity-100');
+      }, 500);
+    }
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % mediaHighlights.length);
+    // Start fade out
+    setFadeClass('opacity-0');
+    
+    // Change slide after fade out completes
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % mediaHighlights.length);
+      // Fade back in
+      setFadeClass('opacity-100');
+    }, 500);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + mediaHighlights.length) % mediaHighlights.length);
+    // Start fade out
+    setFadeClass('opacity-0');
+    
+    // Change slide after fade out completes
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev - 1 + mediaHighlights.length) % mediaHighlights.length);
+      // Fade back in
+      setFadeClass('opacity-100');
+    }, 500);
   };
 
   const toggleMute = () => {
@@ -298,16 +333,18 @@ const HeroSectionDynamic = () => {
         ))}
       </div>
 
-      {/* Dynamic Background Media with Enhanced Transitions */}
+      {/* Dynamic Background Media with Enhanced Fade Transitions */}
       {mediaHighlights.map((slide, index) => (
         <div 
           key={slide.id}
           className={`absolute inset-0 scale-105 transition-all duration-2000 ease-in-out ${
-            index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'
+            index === currentSlide ? `${fadeClass} z-0` : 'opacity-0 z-[-1]'
           }`}
           style={{
             transform: `scale(${index === currentSlide ? 1.05 : 1.1})`,
             filter: `blur(${index === currentSlide ? '0px' : '2px'})`,
+            transitionProperty: 'opacity, transform, filter',
+            transitionDuration: index === currentSlide ? '500ms, 2000ms, 2000ms' : '500ms, 2000ms, 2000ms',
           }}
         >
           {slide.media.type === 'video' && !videoErrors[index] ? (
@@ -390,8 +427,8 @@ const HeroSectionDynamic = () => {
         </div>
       ))}
 
-      {/* Main Content - Dynamic */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Content - Dynamic with fade effect */}
+      <div className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-opacity duration-500 ${fadeClass}`}>
         <div className="flex flex-col items-center text-center">
           
           {/* Dynamic Tagline with enhanced typography */}
