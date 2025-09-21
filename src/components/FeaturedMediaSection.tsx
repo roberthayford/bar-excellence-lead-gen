@@ -69,26 +69,52 @@ const FeaturedMediaSection = () => {
               
               {/* Magazine Cover Image Section */}
               <div className="relative h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-accent/10 via-accent/5 to-background">
-                {/* Placeholder for magazine imagery - replace with actual image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent" />
+                {/* Magazine cover placeholder image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop')`, // Award ceremony/magazine style
+                  }}
+                />
                 
-                {/* Elegant text overlay for now - replace with actual magazine cover */}
+                {/* Enhanced overlay for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60" />
+                
+                {/* Additional dark overlay for maximum contrast */}
+                <div className="absolute inset-0 bg-black/40" />
+                
+                {/* Elegant text overlay with enhanced visibility */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                      <Award className="w-10 h-10 text-accent" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-black/50 backdrop-blur-md border border-accent/40 shadow-2xl">
+                      <Award className="w-10 h-10 text-accent drop-shadow-lg" />
                     </div>
                     <div className="text-white">
-                      <p className="text-lg font-serif font-light mb-1">Featured in</p>
-                      <p className="text-3xl font-serif font-medium text-accent">Bar Magazine</p>
-                      <p className="text-sm font-light mt-2 text-white/80">Industry Excellence Award 2024</p>
+                      <p 
+                        className="text-lg font-serif font-light mb-1 drop-shadow-2xl"
+                        style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}
+                      >
+                        Featured in
+                      </p>
+                      <p 
+                        className="text-3xl font-serif font-medium text-accent drop-shadow-2xl"
+                        style={{ textShadow: '0 2px 15px rgba(0,0,0,0.9)' }}
+                      >
+                        Bar Magazine
+                      </p>
+                      <p 
+                        className="text-sm font-light mt-2 text-white drop-shadow-xl"
+                        style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}
+                      >
+                        Industry Excellence Award 2024
+                      </p>
                     </div>
                   </div>
                 </div>
                 
-                {/* Floating sparkle effects */}
-                <Sparkles className="absolute top-4 right-4 w-6 h-6 text-accent/60 animate-pulse" />
-                <Sparkles className="absolute bottom-4 left-4 w-4 h-4 text-accent/40 animate-pulse delay-300" />
+                {/* Floating sparkle effects with better visibility */}
+                <Sparkles className="absolute top-4 right-4 w-6 h-6 text-accent animate-pulse drop-shadow-lg" />
+                <Sparkles className="absolute bottom-4 left-4 w-4 h-4 text-accent/60 animate-pulse delay-300 drop-shadow-lg" />
               </div>
 
               {/* Content */}
@@ -150,37 +176,66 @@ const FeaturedMediaSection = () => {
               
               {/* Newsletter Header Image Section */}
               <div className="relative h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-secondary via-accent/10 to-background">
-                {/* Abstract newsletter design */}
+                {/* Newsletter/training placeholder image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('https://images.unsplash.com/photo-1560512823-829485b8bf24?q=80&w=2070&auto=format&fit=crop')`, // Professional training/workshop scene
+                  }}
+                />
+                
+                {/* Enhanced overlay for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/60 to-black/50" />
+                
+                {/* Additional dark overlay for maximum contrast */}
+                <div className="absolute inset-0 bg-black/35" />
+                
+                {/* Abstract newsletter design overlay */}
                 <div className="absolute inset-0">
-                  {/* Newsletter grid pattern */}
-                  <div className="absolute inset-0 opacity-10">
+                  {/* Newsletter grid pattern with better visibility */}
+                  <div className="absolute inset-0 opacity-15">
                     <div className="h-full w-full bg-[linear-gradient(90deg,_theme(colors.accent)_1px,_transparent_1px),_linear-gradient(180deg,_theme(colors.accent)_1px,_transparent_1px)] bg-[size:20px_20px]" />
                   </div>
                   
-                  {/* Content preview boxes */}
-                  <div className="absolute top-8 left-8 right-8 space-y-3 opacity-20">
-                    <div className="h-3 bg-accent/30 rounded w-3/4"></div>
-                    <div className="h-3 bg-accent/20 rounded w-full"></div>
-                    <div className="h-3 bg-accent/20 rounded w-5/6"></div>
+                  {/* Content preview boxes with enhanced visibility */}
+                  <div className="absolute top-8 left-8 right-8 space-y-3 opacity-30">
+                    <div className="h-3 bg-accent/40 rounded w-3/4 shadow-lg"></div>
+                    <div className="h-3 bg-accent/30 rounded w-full shadow-lg"></div>
+                    <div className="h-3 bg-accent/30 rounded w-5/6 shadow-lg"></div>
                   </div>
                   
-                  {/* Center branding */}
+                  {/* Center branding with enhanced contrast */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                        <BookOpen className="w-10 h-10 text-accent" />
+                      <div className="inline-flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-black/50 backdrop-blur-md border border-accent/40 shadow-2xl">
+                        <BookOpen className="w-10 h-10 text-accent drop-shadow-lg" />
                       </div>
                       <div>
-                        <p className="text-lg font-serif font-light text-foreground/80 mb-1">Weekly Newsletter</p>
-                        <p className="text-3xl font-serif font-medium text-accent">Hospitality Blueprint</p>
-                        <p className="text-sm font-light mt-2 text-muted-foreground">Industry Insights & Trends</p>
+                        <p 
+                          className="text-lg font-serif font-light text-white mb-1 drop-shadow-2xl"
+                          style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9)' }}
+                        >
+                          Weekly Newsletter
+                        </p>
+                        <p 
+                          className="text-3xl font-serif font-medium text-accent drop-shadow-2xl"
+                          style={{ textShadow: '0 2px 15px rgba(0,0,0,0.9)' }}
+                        >
+                          Hospitality Blueprint
+                        </p>
+                        <p 
+                          className="text-sm font-light mt-2 text-white drop-shadow-xl"
+                          style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}
+                        >
+                          Industry Insights & Trends
+                        </p>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Animated elements */}
-                  <div className="absolute top-12 right-12 w-8 h-8 rounded-full bg-accent/20 animate-pulse" />
-                  <div className="absolute bottom-12 left-12 w-6 h-6 rounded-full bg-accent/30 animate-pulse delay-500" />
+                  {/* Animated elements with better visibility */}
+                  <div className="absolute top-12 right-12 w-8 h-8 rounded-full bg-accent/30 animate-pulse shadow-lg" />
+                  <div className="absolute bottom-12 left-12 w-6 h-6 rounded-full bg-accent/40 animate-pulse delay-500 shadow-lg" />
                 </div>
               </div>
 
