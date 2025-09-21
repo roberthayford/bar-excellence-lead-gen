@@ -50,7 +50,6 @@ This is a React SPA built with Vite, TypeScript, and Tailwind CSS. Key architect
 - Vite dev server runs on host "::" port 8080
 - TypeScript with relaxed settings (noImplicitAny: false, strictNullChecks: false)
 - ESLint configured for React with hooks and refresh plugins
-- Uses lovable-tagger plugin in development mode for component tagging
 
 ## Adding New Features
 

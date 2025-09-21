@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+# Bar Excellence - The Art of Hospitality
 
-## Project info
+A luxury hospitality training and consultancy platform built with React, TypeScript, and modern web technologies.
 
-**URL**: https://lovable.dev/projects/a3afc4d8-9e91-467b-91ff-17bf7a58bfa1
+## About Bar Excellence
 
-## How can I edit this code?
+Bar Excellence is a world-class hospitality training and consultancy company, elevating service standards across luxury venues since 2009. We specialize in cocktail training, service excellence, and hospitality consultancy for hotels, restaurants, and bars worldwide.
 
-There are several ways of editing your application.
+### Key Achievements
+- 500+ venues trained globally
+- 15 years of excellence in hospitality
+- 98% client satisfaction rate
+- Featured in Bar Magazine
+- Weekly industry insights through Hospitality Blueprint newsletter
 
-**Use Lovable**
+## Project Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a3afc4d8-9e91-467b-91ff-17bf7a58bfa1) and start prompting.
+This is a modern React SPA showcasing Bar Excellence's services, featuring:
+- Elegant luxury design with custom typography
+- Responsive layouts optimized for all devices
+- Featured media section highlighting industry recognition
+- Professional service presentations
+- Interactive testimonials and case studies
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite with SWC
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Routing**: React Router DOM
+- **State Management**: TanStack Query for server state
+- **Development**: ESLint, TypeScript strict mode
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Clone the repository
+git clone <repository-url>
+cd bar-excellence-elevate
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server on port 8080
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode 
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── pages/           # Route components (Index, Training, NotFound)
+├── components/      # Reusable components
+│   ├── ui/         # shadcn/ui component library
+│   ├── Navigation.tsx
+│   ├── HeroSection.tsx
+│   ├── FeaturedMediaSection.tsx
+│   ├── ServicesSection.tsx
+│   ├── TestimonialsSection.tsx
+│   └── FooterSection.tsx
+├── hooks/          # Custom React hooks
+├── lib/            # Utility functions
+└── assets/         # Static assets
+```
 
-This project is built with:
+## Design System
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Typography
+- **Serif**: Cormorant Garamond (luxury headings)
+- **Sans-serif**: Inter (body text)
 
-## How can I deploy this project?
+### Color Palette
+- Custom HSL color variables for theming
+- Accent colors for luxury branding
+- Responsive design with mobile-first approach
 
-Simply open [Lovable](https://lovable.dev/projects/a3afc4d8-9e91-467b-91ff-17bf7a58bfa1) and click on Share -> Publish.
+### Path Aliases
+- `@/` maps to `./src/` for cleaner imports
+- Configured aliases: `@/components`, `@/lib`, `@/hooks`, `@/ui`
 
-## Can I connect a custom domain to my Lovable project?
+## Features
 
-Yes, you can!
+### Components
+- **HeroSection**: Elegant hero with luxury branding
+- **FeaturedMediaSection**: Showcases Bar Magazine feature and Hospitality Blueprint newsletter
+- **ServicesSection**: Professional service presentations
+- **TestimonialsSection**: Client testimonials with luxury styling
+- **Navigation**: Responsive navigation with smooth transitions
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Responsive Design
+- Mobile-first approach
+- Optimized for all screen sizes
+- Touch-friendly interactions
+- Accessible design patterns
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Development Guidelines
+
+### Adding New Routes
+1. Create page component in `/src/pages/`
+2. Import and add route in `App.tsx` above the "*" catch-all route
+3. Update Navigation component if needed
+
+### Styling Conventions
+- Use existing shadcn/ui components from `/src/components/ui/`
+- Follow established patterns with Tailwind classes
+- Use semantic color variables (foreground, muted-foreground, etc.)
+- Maintain luxury aesthetic with elegant typography and spacing
+
+## Deployment
+
+The application is configured for static hosting and can be deployed to any modern hosting platform that supports static sites.
+
+## License
+
+Proprietary - Bar Excellence Ltd.
+
+## Contact
+
+For questions about this project or Bar Excellence services:
+- Website: [Bar Excellence](https://barexcellence.com)
+- LinkedIn: [Bar Excellence](https://linkedin.com/company/bar-excellence)
+- Newsletter: [Hospitality Blueprint](https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/)
