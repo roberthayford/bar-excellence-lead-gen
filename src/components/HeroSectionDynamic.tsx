@@ -271,7 +271,7 @@ const HeroSectionDynamic = () => {
   const current = mediaHighlights[currentSlide];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Smoke Effect Layer - Enhanced */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
         {/* CSS-based smoke animation - more visible */}
@@ -425,299 +425,284 @@ const HeroSectionDynamic = () => {
         </div>
       ))}
 
-        <div className="flex flex-col items-center text-center">
-          
-          {/* Dynamic Tagline with enhanced typography */}
-          <div 
-            key={`tagline-${current.id}`}
-            className={`mb-8 transition-all duration-1000 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <span className="text-accent/90 text-xs sm:text-sm font-medium tracking-[0.4em] uppercase drop-shadow-2xl font-sans">
-              {current.tagline}
-            </span>
-          </div>
-
-          {/* Dynamic Headline with Gambetta font */}
-          <h1 
-            key={`headline-${current.id}`}
-            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-8 leading-[0.85] tracking-tight transition-all duration-1000 delay-200 drop-shadow-2xl ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ 
-              textShadow: '0 2px 20px rgba(0,0,0,0.8)',
-              fontFamily: 'Gambetta, Georgia, serif',
-            }}
-          >
-            <span className="block">{current.headline[0]}</span>
-            <span className="block mt-2 font-light italic text-accent">{current.headline[1]}</span>
-          </h1>
-
-          {/* Dynamic Subtext with refined typography */}
-          <p 
-            key={`subtext-${current.id}`}
-            className={`text-lg sm:text-xl lg:text-2xl text-white/95 mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 drop-shadow-xl font-sans ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ 
-              textShadow: '0 1px 10px rgba(0,0,0,0.7)',
-              fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-              letterSpacing: '0.01em',
-            }}
-          >
-            {current.subtext}
-          </p>
-
-          {/* Dynamic CTA with enhanced button typography */}
-          <div 
-            key={`cta-${current.id}`}
-            className={`transition-all duration-1000 delay-500 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            {current.cta.external ? (
-              <a
-                href={current.cta.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button 
-                  size="lg"
-                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
-                  style={{
-                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  <span className="relative z-10 flex items-center">
-                    {current.cta.text}
-                    <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </Button>
-              </a>
-            ) : (
-              <Link to={current.cta.link}>
-                <Button 
-                  size="lg"
-                  className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
-                  style={{
-                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  <span className="relative z-10 flex items-center">
-                    {current.cta.text}
-                    <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </Button>
-              </Link>
-            )}
-          </div>
-
-          {/* Slide Navigation Controls */}
-          <div className="mt-12 flex items-center gap-8">
-            {/* Previous Button */}
-            <button
-              onClick={prevSlide}
-              className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
-            </button>
-
-            {/* Slide Indicators */}
-            <div className="flex gap-3">
-              {mediaHighlights.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`transition-all duration-500 ${
-                    index === currentSlide
-                      ? 'w-12 h-2 bg-accent'
-                      : 'w-2 h-2 bg-white/40 hover:bg-white/60'
-                  } rounded-full`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
-            </button>
-          </div>
-
-          {/* Static Trust Indicators with refined typography */}
-          <div 
-            className={`mt-20 flex flex-wrap justify-center items-center gap-8 sm:gap-12 text-white/60 transition-all duration-1000 delay-700 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <span 
-                className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
-                style={{ fontFamily: 'Gambetta, Georgia, serif' }}
-              >
-                500+
-              </span>
-              <span 
-                className="text-xs sm:text-sm font-light tracking-wide"
-                style={{ 
-                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                Venues Trained
-              </span>
-            </div>
-            
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
-            
-            <div className="flex items-center gap-3">
-              <span 
-                className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
-                style={{ fontFamily: 'Gambetta, Georgia, serif' }}
-              >
-                15
-              </span>
-              <span 
-                className="text-xs sm:text-sm font-light tracking-wide"
-                style={{ 
-                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                Years Excellence
-              </span>
-            </div>
-            
-            <div className="hidden sm:block w-px h-8 bg-white/20" />
-            
-            <div className="flex items-center gap-3">
-              <span 
-                className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
-                style={{ fontFamily: 'Gambetta, Georgia, serif' }}
-              >
-                98%
-              </span>
-              <span 
-                className="text-xs sm:text-sm font-light tracking-wide"
-                style={{ 
-                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                Client Satisfaction
-              </span>
-            </div>
-          </div>
-
-          {/* Enhanced mouse-responsive glow effect */}
-          <div 
-            className="absolute z-[2] pointer-events-none"
-            style={{
-              left: mousePosition.x - 300,
-              top: mousePosition.y - 300,
-              width: '600px', // Larger glow
-              height: '600px',
-              background: 'radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(255,255,255,0.05) 30%, transparent 60%)',
-              filter: 'blur(50px)',
-              transition: 'opacity 0.3s ease',
-              opacity: showSmoke ? 0.8 : 0,
-            }}
-          />
-
-          {/* Ultra Minimal Scroll Indicator */}
-          <div 
-            className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="flex flex-col items-center gap-2 text-white/40">
-              <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent animate-pulse" />
-              <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-            </div>
-          </div>
-
-          {/* Enhanced smoke animation keyframes */}
-          <style jsx>{`
-            @keyframes smokeRise {
-              0% {
-                transform: translateY(100%) translateX(0) scale(0.6);
-                opacity: 0;
-              }
-              10% {
-                opacity: 0.6;
-              }
-              30% {
-                opacity: 0.5;
-              }
-              50% {
-                transform: translateY(-30%) translateX(50px) scale(1.3);
-                opacity: 0.4;
-              }
-              70% {
-                opacity: 0.3;
-              }
-              100% {
-                transform: translateY(-120%) translateX(100px) scale(1.8);
-                opacity: 0;
-              }
-            }
-            
-            @keyframes float {
-              0%, 100% {
-                transform: translateY(0) rotate(0deg) scale(1);
-              }
-              25% {
-                transform: translateY(-30px) rotate(90deg) scale(1.1);
-              }
-              50% {
-                transform: translateY(-20px) rotate(180deg) scale(1.2);
-              }
-              75% {
-                transform: translateY(-25px) rotate(270deg) scale(1.1);
-              }
-            }
-            
-            .bg-radial-gradient {
-              background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 100%);
-            }
-            
-            /* Additional text shadow for all text elements */
-            .text-shadow-strong {
-              text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
-            }
-            
-            /* Glow effect on hover */
-            .cocktail-glow:hover {
-              text-shadow: 0 0 30px rgba(212,175,55,0.5);
-            }
-          `}</style>
-        </div>
-      </div>
-
-      {/* Media Type Badge - Top Right */}
-      {current.badge && (
+      <div className="flex flex-col items-center text-center">
+        
+        {/* Dynamic Tagline with enhanced typography */}
         <div 
-          className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+          key={`tagline-${current.id}`}
+          className={`mb-8 transition-all duration-1000 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-accent/30 rounded-full px-4 py-2">
-            {current.icon && <current.icon className="w-4 h-4 text-accent animate-pulse" />}
-            <span className="text-xs sm:text-sm font-light text-white/90 tracking-wide">{current.badge}</span>
+          <span className="text-accent/90 text-xs sm:text-sm font-medium tracking-[0.4em] uppercase drop-shadow-2xl font-sans">
+            {current.tagline}
+          </span>
+        </div>
+
+        {/* Dynamic Headline with Gambetta font */}
+        <h1 
+          key={`headline-${current.id}`}
+          className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-extralight text-white mb-8 leading-[0.85] tracking-tight transition-all duration-1000 delay-200 drop-shadow-2xl ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ 
+            textShadow: '0 2px 20px rgba(0,0,0,0.8)',
+            fontFamily: 'Gambetta, Georgia, serif',
+          }}
+        >
+          <span className="block">{current.headline[0]}</span>
+          <span className="block mt-2 font-light italic text-accent">{current.headline[1]}</span>
+        </h1>
+
+        {/* Dynamic Subtext with refined typography */}
+        <p 
+          key={`subtext-${current.id}`}
+          className={`text-lg sm:text-xl lg:text-2xl text-white/95 mb-12 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-300 drop-shadow-xl font-sans ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ 
+            textShadow: '0 1px 10px rgba(0,0,0,0.7)',
+            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+            letterSpacing: '0.01em',
+          }}
+        >
+          {current.subtext}
+        </p>
+
+        {/* Dynamic CTA with enhanced button typography */}
+        <div 
+          key={`cta-${current.id}`}
+          className={`transition-all duration-1000 delay-500 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {current.cta.external ? (
+            <a
+              href={current.cta.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button 
+                size="lg"
+                className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
+                style={{
+                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <span className="relative z-10 flex items-center">
+                  {current.cta.text}
+                  <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </Button>
+            </a>
+          ) : (
+            <Link to={current.cta.link}>
+              <Button 
+                size="lg"
+                className="group relative overflow-hidden bg-black/40 backdrop-blur-md text-white border-2 border-white/40 hover:bg-white hover:text-black px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-xl"
+                style={{
+                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <span className="relative z-10 flex items-center">
+                  {current.cta.text}
+                  <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </Button>
+            </Link>
+          )}
+        </div>
+
+        {/* Slide Navigation Controls */}
+        <div className="mt-12 flex items-center gap-8">
+          {/* Previous Button */}
+          <button
+            onClick={prevSlide}
+            className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="flex gap-3">
+            {mediaHighlights.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`transition-all duration-500 ${
+                  index === currentSlide
+                    ? 'w-12 h-2 bg-accent'
+                    : 'w-2 h-2 bg-white/40 hover:bg-white/60'
+                } rounded-full`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={nextSlide}
+            className="group p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5 text-white group-hover:text-accent transition-colors" />
+          </button>
+        </div>
+
+        {/* Static Trust Indicators with refined typography */}
+        <div 
+          className={`mt-20 flex flex-wrap justify-center items-center gap-8 sm:gap-12 text-white/60 transition-all duration-1000 delay-700 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <span 
+              className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
+              style={{ fontFamily: 'Gambetta, Georgia, serif' }}
+            >
+              500+
+            </span>
+            <span 
+              className="text-xs sm:text-sm font-light tracking-wide"
+              style={{ 
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                letterSpacing: '0.1em',
+              }}
+            >
+              Venues Trained
+            </span>
+          </div>
+          
+          <div className="hidden sm:block w-px h-8 bg-white/20" />
+          
+          <div className="flex items-center gap-3">
+            <span 
+              className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
+              style={{ fontFamily: 'Gambetta, Georgia, serif' }}
+            >
+              15
+            </span>
+            <span 
+              className="text-xs sm:text-sm font-light tracking-wide"
+              style={{ 
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                letterSpacing: '0.1em',
+              }}
+            >
+              Years Excellence
+            </span>
+          </div>
+          
+          <div className="hidden sm:block w-px h-8 bg-white/20" />
+          
+          <div className="flex items-center gap-3">
+            <span 
+              className="text-2xl sm:text-3xl font-serif font-light text-accent/70"
+              style={{ fontFamily: 'Gambetta, Georgia, serif' }}
+            >
+              98%
+            </span>
+            <span 
+              className="text-xs sm:text-sm font-light tracking-wide"
+              style={{ 
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                letterSpacing: '0.1em',
+              }}
+            >
+              Client Satisfaction
+            </span>
           </div>
         </div>
-      )}
-    </section>
+
+        {/* Enhanced mouse-responsive glow effect */}
+        <div 
+          className="absolute z-[2] pointer-events-none"
+          style={{
+            left: mousePosition.x - 300,
+            top: mousePosition.y - 300,
+            width: '600px', // Larger glow
+            height: '600px',
+            background: 'radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(255,255,255,0.05) 30%, transparent 60%)',
+            filter: 'blur(50px)',
+            transition: 'opacity 0.3s ease',
+            opacity: showSmoke ? 0.8 : 0,
+          }}
+        />
+
+        {/* Ultra Minimal Scroll Indicator */}
+        <div 
+          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="flex flex-col items-center gap-2 text-white/40">
+            <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent animate-pulse" />
+            <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+          </div>
+        </div>
+
+        {/* Enhanced smoke animation keyframes */}
+        <style jsx>{`
+          @keyframes smokeRise {
+            0% {
+              transform: translateY(100%) translateX(0) scale(0.6);
+              opacity: 0;
+            }
+            10% {
+              opacity: 0.6;
+            }
+            30% {
+              opacity: 0.5;
+            }
+            50% {
+              transform: translateY(-30%) translateX(50px) scale(1.3);
+              opacity: 0.4;
+            }
+            70% {
+              opacity: 0.3;
+            }
+            100% {
+              transform: translateY(-120%) translateX(100px) scale(1.8);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+              transform: translateY(-30px) rotate(90deg) scale(1.1);
+            }
+            50% {
+              transform: translateY(-20px) rotate(180deg) scale(1.2);
+            }
+            75% {
+              transform: translateY(-25px) rotate(270deg) scale(1.1);
+            }
+          }
+          
+          .bg-radial-gradient {
+            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 100%);
+          }
+          
+          /* Additional text shadow for all text elements */
+          .text-shadow-strong {
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
+          }
+          
+          /* Glow effect on hover */
+          .cocktail-glow:hover {
+            text-shadow: 0 0 30px rgba(212,175,55,0.5);
+          }
+        `}</style>
+      </div>
+    </div>
   );
 };
 
