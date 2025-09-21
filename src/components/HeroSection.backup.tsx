@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-cocktail.jpg";
 import { useState, useEffect } from "react";
@@ -28,6 +28,28 @@ const HeroSection = () => {
         
         {/* Subtle Vignette Effect */}
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/30" />
+      </div>
+
+      {/* Featured In Bar Magazine Badge - Floating Top Right */}
+      <div 
+        className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-1000 ${
+          isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+        }`}
+      >
+        <a
+          href="https://www.linkedin.com/your-bar-magazine-feature-link" // Replace with actual LinkedIn URL
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md border border-accent/30 hover:border-accent/60 rounded-full px-3 sm:px-5 py-2 sm:py-3 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:shadow-xl hover:shadow-accent/20"
+          aria-label="View Bar Excellence feature in Bar Magazine on LinkedIn"
+        >
+          <Award className="w-4 h-4 sm:w-5 sm:h-5 text-accent animate-pulse" />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+            <span className="text-xs sm:text-sm font-light text-white/90 tracking-wide">Featured in</span>
+            <span className="text-xs sm:text-sm font-serif font-medium text-accent">Bar Magazine</span>
+          </div>
+          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 group-hover:text-accent transition-colors duration-300" />
+        </a>
       </div>
 
       {/* Main Content - Ultra Clean Design */}
@@ -110,6 +132,26 @@ const HeroSection = () => {
               <span className="text-2xl sm:text-3xl font-serif font-light text-accent/70">98%</span>
               <span className="text-xs sm:text-sm font-light tracking-wide">Client Satisfaction</span>
             </div>
+          </div>
+
+          {/* Prominent Magazine Feature Below Stats */}
+          <div 
+            className={`mt-12 transition-all duration-1000 delay-900 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <a
+              href="https://www.linkedin.com/your-bar-magazine-feature-link" // Replace with actual LinkedIn URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-accent/10 to-accent/5 backdrop-blur-sm border border-accent/20 hover:border-accent/40 rounded-full px-6 py-3 transition-all duration-500 hover:bg-accent/20 hover:scale-105 hover:shadow-lg hover:shadow-accent/10"
+              aria-label="Read about Bar Excellence in Bar Magazine on LinkedIn"
+            >
+              <Award className="w-5 h-5 text-accent animate-pulse" />
+              <span className="text-sm font-light text-white/90">As Featured in</span>
+              <span className="text-sm font-serif font-semibold text-accent">Bar Magazine</span>
+              <ExternalLink className="w-4 h-4 text-white/60 group-hover:text-accent transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
           </div>
         </div>
       </div>
