@@ -41,7 +41,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center group">
             <div className={cn(
               "relative overflow-hidden",
               logoError ? "logo-error" : ""
@@ -61,10 +61,6 @@ const Navigation = () => {
                   <span className="text-primary-foreground font-serif font-bold text-lg">BE</span>
                 </div>
               )}
-            </div>
-            {/* Hide the text on mobile since the logo has the text */}
-            <div className="hidden lg:block ml-2">
-              <span className="font-serif font-medium text-lg tracking-wide luxury-transition">EXCELLENCE</span>
             </div>
           </Link>
 

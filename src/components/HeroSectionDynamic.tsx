@@ -62,7 +62,6 @@ const mediaHighlights = [
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
     icon: Award,
-    badge: "Industry Excellence Award",
   },
   {
     id: 2,
@@ -78,7 +77,6 @@ const mediaHighlights = [
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
     icon: BookOpen,
-    badge: "5,000+ Subscribers",
   },
 ];
 
@@ -218,20 +216,6 @@ const HeroSectionDynamic = () => {
           }} />
         </div>
       ))}
-
-      {/* Media Type Badge - Top Right */}
-      {current.badge && (
-        <div 
-          className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-          }`}
-        >
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-accent/30 rounded-full px-4 py-2">
-            {current.icon && <current.icon className="w-4 h-4 text-accent animate-pulse" />}
-            <span className="text-xs sm:text-sm font-light text-white/90 tracking-wide">{current.badge}</span>
-          </div>
-        </div>
-      )}
 
       {/* Main Content - Dynamic */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
