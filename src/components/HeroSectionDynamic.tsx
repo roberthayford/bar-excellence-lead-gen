@@ -14,14 +14,12 @@ type MediaAsset = {
 };
 
 // Media assets configuration using Unsplash placeholders
-// High-quality, luxury bar-themed images and videos
+// Using images as primary with optional video enhancement
 const MEDIA_ASSETS: Record<string, MediaAsset> = {
   main: {
-    type: "video", 
-    // Luxury cocktail making video from Pexels (Unsplash doesn't host videos directly)
-    src: "https://cdn.pixabay.com/video/2024/02/12/200326-913571686_large.mp4", // Cocktail pouring video
-    // Fallback poster - elegant cocktail image
-    poster: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop", 
+    type: "image", // Changed to image for better reliability
+    // Elegant cocktail with dramatic lighting
+    src: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
   },
   magazine: {
     type: "image", 
@@ -29,24 +27,43 @@ const MEDIA_ASSETS: Record<string, MediaAsset> = {
     src: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=2029&auto=format&fit=crop",
   },
   newsletter: {
-    type: "video",
-    // Professional bartender training/working video from Pexels
-    src: "https://cdn.pixabay.com/video/2022/09/08/131573-748856614_large.mp4", // Bartender at work
-    // Fallback poster - training/workshop scene
-    poster: "https://images.unsplash.com/photo-1569924995012-c4c706bfcd51?q=80&w=2021&auto=format&fit=crop",
+    type: "image", // Changed to image for better reliability
+    // Professional bartender crafting cocktails
+    src: "https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2069&auto=format&fit=crop",
   }
 };
 
-// Alternative high-quality Unsplash images for static version:
+// Video version configuration (uncomment to use videos):
+/*
+const MEDIA_ASSETS: Record<string, MediaAsset> = {
+  main: {
+    type: "video",
+    src: "https://cdn.pixabay.com/video/2024/02/12/200326-913571686_large.mp4",
+    poster: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
+  },
+  magazine: {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=2029&auto=format&fit=crop",
+  },
+  newsletter: {
+    type: "video",
+    src: "https://cdn.pixabay.com/video/2022/09/08/131573-748856614_large.mp4",
+    poster: "https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2069&auto=format&fit=crop",
+  }
+};
+*/
+
+// Alternative high-quality Unsplash images:
 // Luxury cocktails: https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=2057&auto=format&fit=crop
+// Gold cocktail: https://images.unsplash.com/photo-1609951651556-5334e2706168?q=80&w=2070&auto=format&fit=crop
 // Premium bar: https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=2035&auto=format&fit=crop
-// Bartender working: https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2069&auto=format&fit=crop
 // Award ceremony: https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop
 
 const HeroSectionDynamic = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   // Content for rotating highlights
@@ -150,6 +167,11 @@ const HeroSectionDynamic = () => {
     });
   };
 
+  const handleVideoError = (index: number) => {
+    console.log(`Video failed to load for slide ${index}, using fallback image`);
+    setVideoErrors(prev => ({ ...prev, [index]: true }));
+  };
+
   const current = mediaHighlights[currentSlide];
 
   return (
@@ -162,7 +184,7 @@ const HeroSectionDynamic = () => {
             index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'
           }`}
         >
-          {slide.media.type === 'video' ? (
+          {slide.media.type === 'video' && !videoErrors[index] ? (
             <>
               {/* Video Background */}
               <video
@@ -172,7 +194,8 @@ const HeroSectionDynamic = () => {
                 muted={isMuted}
                 loop
                 playsInline
-                poster={slide.media.poster || heroImage} // Use slide-specific poster or fallback
+                poster={slide.media.poster || heroImage}
+                onError={() => handleVideoError(index)}
               />
               
               {/* Mute/Unmute Button for Videos */}
@@ -192,11 +215,15 @@ const HeroSectionDynamic = () => {
             </>
           ) : (
             <>
-              {/* Image Background */}
+              {/* Image Background (or fallback for failed videos) */}
               <div
                 className="absolute inset-0"
                 style={{ 
-                  backgroundImage: `url(${slide.media.src})`,
+                  backgroundImage: `url(${
+                    slide.media.type === 'video' && slide.media.poster 
+                      ? slide.media.poster 
+                      : slide.media.src
+                  })`,
                   backgroundPosition: 'center',
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat',
