@@ -41,7 +41,7 @@ const mediaHighlights = [
     type: "main",
     media: MEDIA_ASSETS.main,
     tagline: "Elevating Hospitality Since 2009",
-    headline: ["The Art of", "Excellence"],
+    headline: ["The art of", "hospitality"],
     subtext: "World-class cocktail training and consultancy for luxury hospitality",
     cta: {
       text: "Discover Our Services",
