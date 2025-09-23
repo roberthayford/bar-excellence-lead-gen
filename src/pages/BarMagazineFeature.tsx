@@ -11,6 +11,8 @@ const BarMagazineFeature = () => {
 
   useEffect(() => {
     setIsLoaded(true);
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
   }, []);
 
   const handleDownload = (filename: string) => {
@@ -237,7 +239,6 @@ const BarMagazineFeature = () => {
                   </div>
                 </div>
               </div>
-
             </div>
 
             {/* Download Section */}
@@ -292,7 +293,6 @@ const BarMagazineFeature = () => {
                   </Button>
                 </div>
               </div>
-
 
               {/* Additional Info */}
               <div className="mt-8 text-center">
