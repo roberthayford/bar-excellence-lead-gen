@@ -23,6 +23,7 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
+    { name: "Home", href: "/", className: "font-medium" },
     { name: "Hospitality Blueprint", href: "/blueprint", className: "font-bodoni tracking-wider" },
     { name: "Newsletter", href: "/newsletter" },
     { name: "Training", href: "/training" },

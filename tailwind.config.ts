@@ -111,8 +111,8 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "glow": {
-          "0%": { "box-shadow": "0 0 20px hsl(45 92% 47% / 0.3)" },
-          "100%": { "box-shadow": "0 0 30px hsl(45 92% 47% / 0.6)" },
+          "0%": { "box-shadow": "0 0 20px hsl(34 42% 58% / 0.3)" },
+          "100%": { "box-shadow": "0 0 30px hsl(34 42% 58% / 0.6)" },
         },
       },
     },
