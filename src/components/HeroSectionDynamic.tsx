@@ -25,7 +25,7 @@ const MEDIA_ASSETS: Record<string, MediaAsset> = {
   magazine: {
     type: "image", 
     // Darker bar interior with better contrast
-    src: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=2035&auto=format&fit=crop", // Moody bar interior
+    src: "/downloads/latest-issue-bar-magazine.jpeg", // Bar Magazine cover image
   },
   newsletter: {
     type: "image",
@@ -53,13 +53,13 @@ const mediaHighlights = [
     id: 1,
     type: "magazine",
     media: MEDIA_ASSETS.magazine,
-    tagline: "Featured in Bar Magazine 2024",
+    tagline: "Featured in Bar Magazine - October 2025",
     headline: ["Industry", "Recognition"],
-    subtext: "Bar Excellence's innovative approach to hospitality training sets new standards",
+    subtext: "Read and download our exclusive feature articles from Bar Magazine",
     cta: {
-      text: "Read the Feature",
-      link: "https://www.linkedin.com/your-bar-magazine-feature-link",
-      external: true,
+      text: "View Full Articles",
+      link: "/bar-magazine-feature",
+      external: false,
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
   },
@@ -422,7 +422,7 @@ const HeroSectionDynamic = () => {
       </div>
 
       {/* Add enhanced text shadow styles */}
-      <style jsx>{`
+      <style>{`
         .bg-radial-gradient {
           background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 100%);
         }

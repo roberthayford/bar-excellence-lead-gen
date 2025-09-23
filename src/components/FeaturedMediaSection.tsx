@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, Award, BookOpen, TrendingUp, Users, Calendar, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const FeaturedMediaSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -73,7 +74,7 @@ const FeaturedMediaSection = () => {
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop')`, // Award ceremony/magazine style
+                    backgroundImage: `url('/downloads/latest-issue-bar-magazine.jpeg')`, // Bar Magazine cover
                   }}
                 />
                 
@@ -131,7 +132,7 @@ const FeaturedMediaSection = () => {
                 </div>
 
                 <p className="text-sm xs:text-base text-muted-foreground leading-relaxed font-light">
-                  Bar Excellence's innovative approach to hospitality training has been recognized by the industry's leading publication. Our expertise in elevating cocktail service and team development continues to set new standards across luxury venues.
+                  Bar Excellence has been featured in two comprehensive Bar Magazine articles showcasing our innovative approach to hospitality training and high standard service delivery. Our expertise continues to set new standards across luxury venues.
                 </p>
 
                 {/* Feature Highlights */}
@@ -147,21 +148,19 @@ const FeaturedMediaSection = () => {
                 </div>
 
                 {/* CTA Button */}
-                <a
-                  href="https://www.linkedin.com/your-bar-magazine-feature-link" // Replace with actual LinkedIn URL
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/bar-magazine-feature"
                   className="w-full"
                 >
                   <Button 
                     className="w-full group/btn bg-accent/10 hover:bg-accent text-accent hover:text-accent-foreground border border-accent/30 hover:border-accent transition-all duration-500 py-6 text-base font-light tracking-wide"
                   >
                     <span className="flex items-center justify-center gap-3">
-                      Read the Feature Article
+                      Read & Download Articles
                       <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
                     </span>
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -194,7 +193,10 @@ const FeaturedMediaSection = () => {
                 <div className="absolute inset-0">
                   {/* Newsletter grid pattern with better visibility */}
                   <div className="absolute inset-0 opacity-15">
-                    <div className="h-full w-full bg-[linear-gradient(90deg,_theme(colors.accent)_1px,_transparent_1px),_linear-gradient(180deg,_theme(colors.accent)_1px,_transparent_1px)] bg-[size:20px_20px]" />
+                    <div className="h-full w-full" style={{
+                      backgroundImage: `linear-gradient(90deg, rgba(var(--accent-rgb), 0.3) 1px, transparent 1px), linear-gradient(180deg, rgba(var(--accent-rgb), 0.3) 1px, transparent 1px)`,
+                      backgroundSize: '20px 20px'
+                    }} />
                   </div>
                   
                   {/* Content preview boxes with enhanced visibility */}
