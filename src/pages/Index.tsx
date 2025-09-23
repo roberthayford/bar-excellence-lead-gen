@@ -75,7 +75,7 @@ const Index = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="w-full group relative overflow-hidden border-2 border-accent/30 hover:border-accent/50 hover:bg-accent/5 px-12 py-7 text-lg font-light tracking-wider transition-all duration-500"
+                className="w-full group relative overflow-hidden border-2 border-accent/30 hover:border-accent/50 hover:bg-accent hover:text-accent-foreground px-12 py-7 text-lg font-light tracking-wider transition-all duration-500"
               >
                 <span className="relative z-10 flex items-center">
                   Explore Training Programs

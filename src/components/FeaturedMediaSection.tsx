@@ -299,7 +299,7 @@ const FeaturedMediaSection = () => {
                   >
                     <Button 
                       variant="outline"
-                      className="w-full group/btn border-accent/30 hover:border-accent hover:bg-accent/5 text-accent transition-all duration-500 py-6 text-base font-light tracking-wide"
+                      className="w-full group/btn border-accent/30 hover:border-accent hover:bg-accent text-accent hover:text-accent-foreground transition-all duration-500 py-6 text-base font-light tracking-wide"
                     >
                       <span className="flex items-center justify-center gap-3">
                         Subscribe for Free
