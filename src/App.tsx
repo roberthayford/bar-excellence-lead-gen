@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Training from "./pages/Training";
 import Events from "./pages/Events";
 import BarMagazineFeature from "./pages/BarMagazineFeature";
+import Blueprint from "./pages/Blueprint";
+import ExternalURLHandler from "./components/ExternalURLHandler";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,11 +55,13 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <ExternalURLHandler />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/training" element={<Training />} />
             <Route path="/events" element={<Events />} />
             <Route path="/bar-magazine-feature" element={<BarMagazineFeature />} />
+            <Route path="/blueprint" element={<Blueprint />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

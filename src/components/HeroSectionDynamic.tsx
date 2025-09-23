@@ -72,8 +72,8 @@ const mediaHighlights = [
     subtext: "Join thousands of professionals receiving curated expertise every week",
     cta: {
       text: "Subscribe to Newsletter",
-      link: "https://www.linkedin.com/newsletters/hospitality-blueprint-7360390262872776704/",
-      external: true,
+      link: "/blueprint",
+      external: false,
     },
     bgOverlay: "from-black/60 via-black/70 to-black/80", // Stronger overlay
   },
