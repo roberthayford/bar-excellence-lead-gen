@@ -19,8 +19,8 @@ type MediaAsset = {
 const MEDIA_ASSETS: Record<string, MediaAsset> = {
   main: {
     type: "image",
-    // Darker, moodier cocktail image for better text visibility
-    src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2069&auto=format&fit=crop", // Dark luxury bar
+    // High-quality cocktail glass image with dark background for better text visibility
+    src: "/img/slider/cocktail_glass_1.jpg", // Local cocktail glass image
   },
   magazine: {
     type: "image", 
