@@ -30,12 +30,12 @@ const TestimonialsSection = () => {
   ];
 
   const clientPartners = [
-    "Eastwood Hall",
-    "Edgbaston Birmingham", 
-    "The Venues Collection",
-    "Four Seasons",
-    "Mandarin Oriental",
-    "The Dorchester"
+    "Compass Group",
+    "Levy UK & Ireland",
+    "NEC Group",
+    "Restaurant Associates",
+    "Moxy",
+    "The Venues Collection"
   ];
 
   // Auto-rotation effect

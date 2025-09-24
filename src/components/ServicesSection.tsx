@@ -27,7 +27,7 @@ const ServicesSection = () => {
       title: "Consultancy Services",
       subtitle: "Transform Your Operation",
       description: "Expert guidance to transform your bar operation, from menu development to staff training and operational excellence.",
-      features: ["Menu Development", "Staff Training", "Operational Consulting", "Equipment Advice"],
+      features: ["Menu Development", "Spirits & Drinks Investment Sourcing", "Distributer Negotiation", "Staff Training"],
       image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2029&q=80",
       href: "/consultancy",
       cta: "Get Consultation",
